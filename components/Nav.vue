@@ -19,10 +19,7 @@
           type="button"
           @click="toggleNavbar()"
         >
-          <v-icon
-            scale="2.5"
-            name="co-hamburger-menu"
-          />
+          <v-icon scale="2.5" name="co-hamburger-menu" />
         </button>
       </div>
       <div
@@ -69,7 +66,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-let showMenu = ref(false);
+const showMenu = ref(false);
 function toggleNavbar() {
   showMenu.value = !showMenu.value;
 }

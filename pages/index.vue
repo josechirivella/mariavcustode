@@ -1,40 +1,31 @@
 <template>
-  <div
-    id="hero"
-    class="flex justify-between px-4 lg:px-16 py-8 items-center"
-  >
+  <div id="hero" class="flex justify-between px-4 lg:px-16 py-8 items-center">
     <div class="hero-content">
       <h1 class="text-4xl lg:text-8xl">
-        Hi there,<br>
+        Hi there,<br />
         I'm Maria
       </h1>
       <img
-        :src="squigglesImg"
+        src="~/assets/images/squiggles.png"
         alt="Squiggles"
         class="my-8 relative -left-4 lg:-left-24"
-      >
+      />
       <p class="lg:text-3xl">
         A highly motivated UX/UI designer with a background in Marketing.
         Passionate about creating and designing new and evolving projects.
       </p>
     </div>
     <img
-      :src="portraitImg"
+      src="~/assets/images/portrait.png"
       class="w-1/2"
       alt="Portrait Picture"
-    >
+    />
   </div>
-  <div
-    id="what-i-do"
-    class="mb-8"
-  >
+  <div id="what-i-do" class="mb-8">
     <headline-underline headline="What do I do" />
     <cards :content="content" />
   </div>
-  <div
-    id="skills"
-    class="mb-8"
-  >
+  <div id="skills" class="mb-8">
     <headline-underline headline="My Skills" />
     <div class="grid grid-flow-row grid-cols-1 grid-rows-1 lg:grid-flow-col">
       <ul
@@ -54,34 +45,36 @@
         <li>Illustration</li>
       </ul>
       <img
-        :src="skillsImg"
+        src="~/assets/images/skills-image.png"
         class="hidden lg:block lg:w-2/4"
         alt="Skills"
-      >
+      />
     </div>
   </div>
-  <div
-    id="latest-projects"
-    class="mb-8"
-  >
+  <div id="latest-projects" class="mb-8">
     <headline-underline headline="Latest Projects" />
-    <template
-      v-for="project in projects"
-      :key="project.id"
-    >
+    <template v-for="project in projects" :key="project.id">
       <router-link
-        :to="{name: 'projects', params: {id: project.id }}"
+        :to="{ name: 'projects', params: { id: project.id } }"
         class="flex items-center flex-wrap"
       >
         <template v-if="project.attributes.featureImage">
           <img
-            :src="convertStrapiImageURL(project.attributes.featureImage.data.attributes.url)"
-            :alt="project.attributes.featureImage.data.attributes.alternativeText"
+            :src="
+              convertStrapiImageURL(
+                project.attributes.featureImage.data.attributes.url,
+              )
+            "
+            :alt="
+              project.attributes.featureImage.data.attributes.alternativeText
+            "
             class="w-1/2 lg:w-1/5 lg:ml-8 lg:mr-12 my-0 mx-auto"
-          >
+          />
         </template>
 
-        <div class="ml-4 lg:ml-0 h-24 w-full flex-1 flex justify-center flex-col">
+        <div
+          class="ml-4 lg:ml-0 h-24 w-full flex-1 flex justify-center flex-col"
+        >
           <h3 class="text-3xl">
             {{ project.attributes.heading }}
           </h3>
@@ -90,61 +83,40 @@
       </router-link>
     </template>
   </div>
-  <div
-    id="contact-home"
-    class="mb-8"
-  >
-    <h2 class="bg-purple text-white text-4xl p-4 lg:w-2/5 mb-4">
-      Let's talk!
-    </h2>
+  <div id="contact-home" class="mb-8">
+    <h2 class="bg-purple text-white text-4xl p-4 lg:w-2/5 mb-4">Let's talk!</h2>
     <div class="flex flex-col px-4">
       <span class="flex items-center">
-        <v-icon
-          name="hi-mail"
-          scale="2"
-        />
-        <a
-          href="mailto:mariavcustode@gmail.com"
-          class="text-bold ml-2"
-        >mariavcustode@gmail.com</a>
+        <v-icon name="hi-mail" scale="2" />
+        <a href="mailto:mariavcustode@gmail.com" class="text-bold ml-2"
+          >mariavcustode@gmail.com</a
+        >
       </span>
       <span class="flex items-center">
-        <v-icon
-          name="co-linkedin-in"
-          scale="2"
-        />
+        <v-icon name="co-linkedin-in" scale="2" />
         <a
           href="https://linkedin.com/in/mariavcustode"
           target="_blank"
           class="text-bold ml-2"
-        >linkedin.com/in/mariavcustode</a>
+          >linkedin.com/in/mariavcustode</a
+        >
       </span>
       <span class="flex items-center">
-        <v-icon
-          name="bi-telephone-fill"
-          scale="2"
-        />
-        <a
-          href="tel:9195799981"
-          class="text-bold ml-2"
-        >919-579-9981</a>
+        <v-icon name="bi-telephone-fill" scale="2" />
+        <a href="tel:9195799981" class="text-bold ml-2">919-579-9981</a>
       </span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { Ref, ref } from "vue";
 import Cards from "../components/Cards.vue";
 import HeadlineUnderline from "../components/HeadlineUnderline.vue";
 import projectsService from "../services/projects";
-import {ENTITIES} from "../services/entities.ts";
-import {Ref, ref} from "vue";
-import {ICaseStudies} from "../models/case-studies.model.ts";
-import {convertStrapiImageURL} from "../composables/imageURL.ts";
-
-const squigglesImg = new URL("/assets/squiggles.png", import.meta.url).href;
-const portraitImg = new URL("/assets/portrait.png", import.meta.url).href;
-const skillsImg = new URL("/assets/skills-image.png", import.meta.url).href;
+import { ENTITIES } from "../services/entities";
+import { ICaseStudies } from "../models/case-studies.model";
+import { convertStrapiImageURL } from "../composables/imageURL";
 
 const content = [
   {
@@ -165,16 +137,16 @@ const projects: Ref<ICaseStudies[]> = ref();
 
 async function getProjects() {
   try {
-    const {data} = await projectsService.get(ENTITIES.CASE_STUDIES, {
+    const { data } = await projectsService.get(ENTITIES.CASE_STUDIES, {
       params: {
-        populate: 'featureImage'
-      }
+        populate: "featureImage",
+      },
     });
     // TODO hardcoding the latest project for the moment
-    console.log(data.data)
+    console.log(data.data);
     projects.value = data.data;
   } catch (e) {
-    console.error('There was a problem fetching the projects', e.error)
+    console.error("There was a problem fetching the projects", e.error);
   }
 }
 

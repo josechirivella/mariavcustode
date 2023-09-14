@@ -1,6 +1,7 @@
 export function convertStrapiImageURL(url: string) {
   const originalUrl = url;
-  const {VITE_STRAPI_URL} = import.meta.env;
+  const config = useRuntimeConfig();
+  const STRAPI_URL = config.NUXT_STRAPI_URL;
 
-  return `${VITE_STRAPI_URL}${originalUrl}`
+  return `${STRAPI_URL}${originalUrl}`;
 }

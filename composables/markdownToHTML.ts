@@ -1,9 +1,9 @@
-import {ref} from "vue";
-import {marked} from "marked";
+import { ref } from "vue";
+import { marked } from "marked";
 
 export function markdownToHTML(content: string) {
   const markdown = ref(content);
-  const result = ref('');
+  const result = ref("");
 
   result.value = marked(markdown.value);
 

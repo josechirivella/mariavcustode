@@ -1,17 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "./tailwind.scss";
 @import "./fonts";
 
 @layer base {
   :root {
-    --color-secondary: rgba(207, 188, 233, 0.46)
+    --color-secondary: rgba(207, 188, 233, 0.46);
   }
-  h1,h2,h3,h4,h5,h6 {
-    font-family: 'DM Serif Display', sans-serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "DM Serif Display", sans-serif;
   }
+
   p {
-    font-family: 'DM Serif Text', sans-serif;
+    font-family: "DM Serif Text", sans-serif;
   }
 }

@@ -1,9 +1,6 @@
 <template>
   <div class="card-container flex justify-around flex-wrap lg:flex-nowrap">
-    <template
-      v-for="(card, index) in props.content"
-      :key="index"
-    >
+    <template v-for="(card, index) in props.content" :key="index">
       <div class="card">
         <h3 class="text-center text-2xl mb-2">
           {{ card.title }}
