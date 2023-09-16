@@ -54,17 +54,13 @@
   <div id="latest-projects" class="mb-8">
     <headline-underline headline="Latest Projects" />
     <template v-for="project in projects" :key="project.id">
-      <router-link
-        :to="{ name: 'projects', params: { id: project.id } }"
+      <NuxtLink
+        :to="`projects/${project.id}`"
         class="flex items-center flex-wrap"
       >
         <template v-if="project.attributes.featureImage">
           <img
-            :src="
-              convertStrapiImageURL(
-                project.attributes.featureImage.data.attributes.url,
-              )
-            "
+            :src="project.attributes.featureImage.data.attributes.url"
             :alt="
               project.attributes.featureImage.data.attributes.alternativeText
             "
@@ -80,20 +76,20 @@
           </h3>
           <p>{{ project.attributes.subheading }}</p>
         </div>
-      </router-link>
+      </NuxtLink>
     </template>
   </div>
   <div id="contact-home" class="mb-8">
     <h2 class="bg-purple text-white text-4xl p-4 lg:w-2/5 mb-4">Let's talk!</h2>
     <div class="flex flex-col px-4">
       <span class="flex items-center">
-        <v-icon name="hi-mail" scale="2" />
+        <Icon name="ci:mail" />
         <a href="mailto:mariavcustode@gmail.com" class="text-bold ml-2"
           >mariavcustode@gmail.com</a
         >
       </span>
       <span class="flex items-center">
-        <v-icon name="co-linkedin-in" scale="2" />
+        <Icon name="mdi:linkedin" />
         <a
           href="https://linkedin.com/in/mariavcustode"
           target="_blank"
@@ -102,7 +98,7 @@
         >
       </span>
       <span class="flex items-center">
-        <v-icon name="bi-telephone-fill" scale="2" />
+        <Icon name="mdi:telephone" />
         <a href="tel:9195799981" class="text-bold ml-2">919-579-9981</a>
       </span>
     </div>
@@ -116,7 +112,6 @@ import HeadlineUnderline from "../components/HeadlineUnderline.vue";
 import projectsService from "../services/projects";
 import { ENTITIES } from "../services/entities";
 import { ICaseStudies } from "../models/case-studies.model";
-import { convertStrapiImageURL } from "../composables/imageURL";
 
 const content = [
   {
@@ -143,8 +138,7 @@ async function getProjects() {
       },
     });
     // TODO hardcoding the latest project for the moment
-    console.log(data.data);
-    projects.value = data.data;
+    projects.value = data;
   } catch (e) {
     console.error("There was a problem fetching the projects", e.error);
   }

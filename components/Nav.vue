@@ -8,18 +8,18 @@
       <div
         class="w-full relative flex justify-between items-center lg:w-auto px-4 lg:static lg:block lg:justify-start"
       >
-        <router-link
+        <NuxtLink
           class="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
           to="/"
         >
           Maria Custode
-        </router-link>
+        </NuxtLink>
         <button
           class="text-white cursor-pointer text-xl leading-none px-3 py-1 rounded bg-transparent block lg:hidden outline-none focus:outline-none"
           type="button"
           @click="toggleNavbar()"
         >
-          <v-icon scale="2.5" name="co-hamburger-menu" />
+          <Icon name="ci:hamburger-md" color="black" />
         </button>
       </div>
       <div
@@ -28,14 +28,14 @@
       >
         <ul class="flex flex-col lg:flex-row list-none ml-auto">
           <li class="nav-item">
-            <router-link
+            <NuxtLink
               class="px-3 py-2 flex items-center text-lg uppercase font-bold leading-snug text-white hover:opacity-75"
               to="/projects"
             >
               <i
                 class="fab fa-facebook-square text-lg leading-lg text-white opacity-75"
               /><span class="ml-2">Projects</span>
-            </router-link>
+            </NuxtLink>
           </li>
           <li class="nav-item">
             <a
@@ -49,14 +49,14 @@
             </a>
           </li>
           <li class="nav-item">
-            <router-link
+            <NuxtLink
               class="px-3 py-2 flex items-center text-lg uppercase font-bold leading-snug text-white hover:opacity-75"
               to="/contact"
             >
               <i
                 class="fab fa-pinterest text-lg leading-lg text-white opacity-75"
               /><span class="ml-2">Contact</span>
-            </router-link>
+            </NuxtLink>
           </li>
         </ul>
       </div>

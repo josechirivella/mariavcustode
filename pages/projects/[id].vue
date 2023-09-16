@@ -9,7 +9,7 @@
         <h3>{{ project.subHeading }}</h3>
       </div>
       <img
-        :src="convertStrapiImageURL(project.featureImage.data.attributes.url)"
+        :src="project.featureImage.data.attributes.url"
         :alt="project.featureImage.data.attributes.alternativeText"
         class="w-1/2"
       />
@@ -23,12 +23,11 @@
 </template>
 
 <script setup lang="ts">
-import projectsService from "../services/projects.ts";
-import { ENTITIES } from "../services/entities.ts";
-import { ICaseStudyAttributes } from "../models/case-studies.model.ts";
+import projectsService from "../../services/projects";
+import { ENTITIES } from "../../services/entities";
+import { ICaseStudyAttributes } from "../../models/case-studies.model";
 import { onMounted, Ref, ref } from "vue";
 import { useRoute } from "vue-router";
-import { convertStrapiImageURL } from "../composables/imageURL.ts";
 
 const route = useRoute();
 
@@ -46,9 +45,9 @@ async function fetchData() {
         },
       },
     );
-    console.log("data", data.data.attributes);
-    project.value = data.data.attributes;
-    backgroundColor.value = data.data.attributes.backgroundColor;
+    console.log("data", data.attributes);
+    project.value = data.attributes;
+    backgroundColor.value = data.attributes.backgroundColor;
   } catch (e) {
     console.error("There was a problem fetching the case study", e);
   }
