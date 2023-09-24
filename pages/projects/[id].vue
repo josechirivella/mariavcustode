@@ -16,18 +16,19 @@
     </div>
     <div class="content p-4">
       <template v-for="content in project.content" :key="content.id">
-        <component :is="content.__component" :content="content.richText" />
+        <LazyRichText v-if="content?.richText" :content="content.richText"></LazyRichText>
       </template>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import projectsService from "../../services/projects";
-import { ENTITIES } from "../../services/entities";
-import { ICaseStudyAttributes } from "../../models/case-studies.model";
+import projectsService from "~/services/projects";
+import { ENTITIES } from "~/services/entities";
+import { ICaseStudyAttributes } from "~/models/case-studies.model";
 import { onMounted, Ref, ref } from "vue";
 import { useRoute } from "vue-router";
+import { ComponentType, IComponentObject } from "~/models/componentTypes.model";
 
 const route = useRoute();
 
@@ -53,6 +54,11 @@ async function fetchData() {
   }
 }
 
+function checkAsyncComponent(
+   content: IComponentObject) {
+
+}
+
 onMounted(async () => {
   await fetchData();
 });
@@ -64,6 +70,9 @@ h1 {
 }
 h2 {
   @apply text-2xl;
+  &:not(:first-child) {
+    @apply mt-4;
+  }
 }
 h3 {
   @apply text-xl;

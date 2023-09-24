@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { markdownToHTML } from "../../composables/markdownToHTML.ts";
+import { markdownToHTML } from "~/composables/markdownToHTML.ts";
 
 const props = defineProps({
   content: {
