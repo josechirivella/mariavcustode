@@ -1,7 +1,7 @@
 <template>
   <section v-if="project?.heading.length > 0">
     <div
-      class="hero flex justify-between items-center px-4"
+      class="hero flex justify-between items-center px-4 container mx-auto"
       :style="{ 'background-color': backgroundColor }"
     >
       <div class="hero__content text-white">
@@ -14,7 +14,7 @@
         class="w-1/2"
       />
     </div>
-    <div class="content p-4">
+    <div class="content p-4 container mx-auto">
       <template v-for="content in project.content" :key="content.id">
         <LazyRichText v-if="content?.richText" :content="content.richText"></LazyRichText>
       </template>
@@ -28,7 +28,6 @@ import { ENTITIES } from "~/services/entities";
 import { ICaseStudyAttributes } from "~/models/case-studies.model";
 import { onMounted, Ref, ref } from "vue";
 import { useRoute } from "vue-router";
-import { ComponentType, IComponentObject } from "~/models/componentTypes.model";
 
 const route = useRoute();
 
@@ -54,11 +53,6 @@ async function fetchData() {
   }
 }
 
-function checkAsyncComponent(
-   content: IComponentObject) {
-
-}
-
 onMounted(async () => {
   await fetchData();
 });
@@ -79,5 +73,11 @@ h3 {
 }
 p {
   @apply text-lg;
+  img {
+    @apply mx-auto;
+  }
+}
+ul {
+  @apply list-disc;
 }
 </style>
