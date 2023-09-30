@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     },
     strapiToken: process.env.STRAPI_TOKEN,
   },
-  modules: ["@nuxtjs/tailwindcss", "nuxt-icon"],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-icon", "nuxt-simple-sitemap"],
   css: ["~/assets/style.scss"],
   postcss: {
     plugins: {
