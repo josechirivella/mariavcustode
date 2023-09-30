@@ -71,10 +71,10 @@ $section-header-bg: #22577a;
   font-family: 'Jost', sans-serif;
 }
 :deep(h3) {
-  @apply text-3xl;
+  @apply text-3xl mb-4;
   font-family: 'Jost', sans-serif;
   &:not(:first-child) {
-    @apply mb-4 mt-8;
+    @apply mt-8;
   }
 }
 :deep(h4) {
