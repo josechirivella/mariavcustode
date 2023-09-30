@@ -48,6 +48,14 @@ async function fetchData() {
     console.log("data", data.attributes);
     project.value = data.attributes;
     backgroundColor.value = data.attributes.backgroundColor;
+    useSeoMeta({
+      title: data.attributes.heading,
+      ogTitle: data.attributes.heading,
+      description: data.attributes.subHeading,
+      ogDescription: data.attributes.subHeading,
+      ogImage: data.attributes.featureImage,
+      twitterCard: 'summary_large_image'
+    })
   } catch (e) {
     console.error("There was a problem fetching the case study", e);
   }

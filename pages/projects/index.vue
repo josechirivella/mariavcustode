@@ -1,23 +1,29 @@
 <template>
-  <div
-    v-if="projects?.length > 0"
-    class="projects-container flex items-center container mx-auto"
-  >
+  <div v-if="projects?.length > 0" class="projects-container container mx-auto">
     <template v-for="project in projects" :key="project.id">
-      <template v-if="project.attributes.featureImage">
-        <img
-          :src="project.attributes.featureImage.data.attributes.url"
-          :alt="project.attributes.featureImage.data.attributes.alternativeText"
-          class="w-1/2 lg:w-1/5 lg:ml-8 lg:mr-12 my-0 mx-auto rounded"
-        />
-      </template>
+      <NuxtLink
+        :to="{ name: 'projects-id', params: { id: project.id } }"
+        class="flex items-center"
+      >
+        <template v-if="project.attributes.featureImage">
+          <img
+            :src="project.attributes.featureImage.data.attributes.url"
+            :alt="
+              project.attributes.featureImage.data.attributes.alternativeText
+            "
+            class="w-1/2 lg:w-1/5 lg:ml-8 lg:mr-12 my-0 mx-auto rounded"
+          />
+        </template>
 
-      <div class="ml-4 lg:ml-0 h-24 w-full flex-1 flex justify-center flex-col">
-        <h3 class="text-3xl">
-          {{ project.attributes.heading }}
-        </h3>
-        <p>{{ project.attributes.subHeading }}</p>
-      </div>
+        <div
+          class="ml-4 lg:ml-0 h-24 w-full flex-1 flex justify-center flex-col"
+        >
+          <h3 class="text-3xl">
+            {{ project.attributes.heading }}
+          </h3>
+          <p>{{ project.attributes.subHeading }}</p>
+        </div>
+      </NuxtLink>
     </template>
   </div>
 </template>
@@ -41,6 +47,13 @@ async function getProjects() {
     console.error("There was a problem fetching the projects", e.error);
   }
 }
+
+useSeoMeta({
+  title: "Maria Custode Case Studies",
+  ogTitle: "Maria Custode Case Studies",
+  description: "Case studies made by Maria Custode",
+  ogDescription: "Case studies made by Maria Custode",
+});
 
 getProjects();
 </script>

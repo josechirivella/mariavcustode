@@ -19,7 +19,7 @@
           type="button"
           @click="toggleNavbar()"
         >
-          <Icon name="ci:hamburger-md" color="black" />
+          <Icon name="ci:hamburger-md" color="white" />
         </button>
       </div>
       <div
