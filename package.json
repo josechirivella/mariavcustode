@@ -1,6 +1,5 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "mariavcustode",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
