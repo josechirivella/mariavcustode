@@ -2,7 +2,7 @@
   <div v-if="projects?.length > 0" class="projects-container container mx-auto">
     <template v-for="project in projects" :key="project.id">
       <NuxtLink
-        :to="{ name: 'projects-id', params: { id: project.id } }"
+        :to="{ name: 'case-studies-id', params: { id: project.id } }"
         class="flex items-center"
       >
         <template v-if="project.attributes.featureImage">

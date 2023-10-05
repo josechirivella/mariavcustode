@@ -4,7 +4,7 @@
       class="hero flex flex-wrap lg:flex-nowrap justify-between items-center px-4 container mx-auto"
       :style="{ 'background-color': backgroundColor }"
     >
-      <div class="hero__content text-white">
+      <div class="hero__content text-white mt-4">
         <h1 class="font-medium">{{ project.heading }}</h1>
         <h3 class="text-3xl mt-4">{{ project.subHeading }}</h3>
       </div>
