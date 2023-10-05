@@ -51,11 +51,11 @@
       />
     </div>
   </div>
-  <div id="latest-projects" class="mb-8">
-    <headline-underline headline="Latest Projects" />
+  <div id="latest-case-studies" class="mb-8">
+    <headline-underline headline="Latest Case Studies" />
     <template v-for="project in projects" :key="project.id">
       <NuxtLink
-        :to="`projects/${project.id}`"
+        :to="`case-studies/${project.id}`"
         class="flex items-center flex-wrap"
       >
         <template v-if="project.attributes.featureImage">
@@ -116,11 +116,11 @@
 
 <script setup lang="ts">
 import { Ref, ref } from "vue";
-import Cards from "../components/Cards.vue";
-import HeadlineUnderline from "../components/HeadlineUnderline.vue";
-import projectsService from "../services/projects";
-import { ENTITIES } from "../services/entities";
-import { ICaseStudies } from "../models/case-studies.model";
+import Cards from "~/components/Cards.vue";
+import HeadlineUnderline from "~/components/HeadlineUnderline.vue";
+import projectsService from "~/services/projects";
+import { ENTITIES } from "~/services/entities";
+import { ICaseStudies } from "~/models/case-studies.model";
 
 const content = [
   {
@@ -146,7 +146,6 @@ async function getProjects() {
         populate: "featureImage",
       },
     });
-    // TODO hardcoding the latest project for the moment
     projects.value = data;
   } catch (e) {
     console.error("There was a problem fetching the projects", e.error);
