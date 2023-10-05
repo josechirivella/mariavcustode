@@ -51,11 +51,11 @@
       />
     </div>
   </div>
-  <div id="latest-projects" class="mb-8">
-    <headline-underline headline="Latest Projects" />
+  <div id="latest-case-studies" class="mb-8">
+    <headline-underline headline="Latest Case Studies" />
     <template v-for="project in projects" :key="project.id">
       <NuxtLink
-        :to="`projects/${project.id}`"
+        :to="`case-studies/${project.id}`"
         class="flex items-center flex-wrap"
       >
         <template v-if="project.attributes.featureImage">
@@ -81,15 +81,15 @@
   </div>
   <div id="contact-home" class="mb-8">
     <h2 class="bg-purple text-white text-4xl p-4 lg:w-2/5 mb-4">Let's talk!</h2>
-    <div class="flex flex-col px-4">
+    <div class="flex flex-col px-4 space-y-4">
       <span class="flex items-center">
-        <Icon name="ci:mail" />
+        <Icon name="ci:mail" width="40" height="40" />
         <a href="mailto:mariavcustode@gmail.com" class="text-bold ml-2"
           >mariavcustode@gmail.com</a
         >
       </span>
       <span class="flex items-center">
-        <Icon name="mdi:linkedin" />
+        <Icon name="mdi:linkedin" width="40" height="40" />
         <a
           href="https://linkedin.com/in/mariavcustode"
           target="_blank"
@@ -98,8 +98,17 @@
         >
       </span>
       <span class="flex items-center">
-        <Icon name="mdi:telephone" />
+        <Icon name="mdi:telephone" width="40" height="40" />
         <a href="tel:9195799981" class="text-bold ml-2">919-579-9981</a>
+      </span>
+      <span class="flex items-center">
+        <Icon name="icon-park-outline:dribble" width="40" height="40" />
+        <a
+          href="https://dribbble.com/mariavcustode"
+          target="_blank"
+          class="text-bold ml-2"
+          >Dribble</a
+        >
       </span>
     </div>
   </div>
@@ -107,11 +116,11 @@
 
 <script setup lang="ts">
 import { Ref, ref } from "vue";
-import Cards from "../components/Cards.vue";
-import HeadlineUnderline from "../components/HeadlineUnderline.vue";
-import projectsService from "../services/projects";
-import { ENTITIES } from "../services/entities";
-import { ICaseStudies } from "../models/case-studies.model";
+import Cards from "~/components/Cards.vue";
+import HeadlineUnderline from "~/components/HeadlineUnderline.vue";
+import projectsService from "~/services/projects";
+import { ENTITIES } from "~/services/entities";
+import { ICaseStudies } from "~/models/case-studies.model";
 
 const content = [
   {
@@ -137,7 +146,6 @@ async function getProjects() {
         populate: "featureImage",
       },
     });
-    // TODO hardcoding the latest project for the moment
     projects.value = data;
   } catch (e) {
     console.error("There was a problem fetching the projects", e.error);

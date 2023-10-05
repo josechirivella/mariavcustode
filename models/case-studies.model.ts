@@ -1,3 +1,5 @@
+import { ComponentType } from "./componentTypes.model";
+
 export interface ICaseStudies {
   id: number;
   attributes: ICaseStudyAttributes;
@@ -17,7 +19,7 @@ export interface ICaseStudyAttributes {
       attributes: IAttributes;
     };
   };
-  content: unknown;
+  content?: ComponentType;
 }
 
 export interface IAttributes {
