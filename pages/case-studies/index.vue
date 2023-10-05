@@ -3,7 +3,7 @@
     <template v-for="project in projects" :key="project.id">
       <NuxtLink
         :to="{ name: 'case-studies-id', params: { id: project.id } }"
-        class="flex items-center"
+        class="flex items-center mt-4"
       >
         <template v-if="project.attributes.featureImage">
           <img
