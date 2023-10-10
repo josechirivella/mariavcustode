@@ -40,7 +40,7 @@
           <li class="nav-item">
             <a
               class="px-3 py-2 flex items-center text-lg uppercase font-bold leading-snug text-white hover:opacity-75"
-              href="https://storage.googleapis.com/uxfolio/64d678eb2f121800026a8399/RESUME_-_Maria_Custode_vxH.pdf"
+              href="Maria Custode - RESUME.pdf"
               target="_blank"
             >
               <i
