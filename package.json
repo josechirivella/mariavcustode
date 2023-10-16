@@ -15,7 +15,7 @@
     "@nuxt/devtools": "latest",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@typescript-eslint/parser": "^6.7.5",
+    "@typescript-eslint/parser": "^6.8.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
@@ -32,6 +32,6 @@
   "dependencies": {
     "@nuxtjs/web-vitals": "^0.2.6",
     "@vercel/analytics": "^1.1.1",
-    "marked": "^9.1.1"
+    "marked": "^9.1.2"
   }
 }
