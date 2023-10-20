@@ -2,6 +2,7 @@
   <Nav />
   <NuxtLoadingIndicator />
   <NuxtPage />
+  <Footer />
 </template>
 
 <script lang="ts" setup>
