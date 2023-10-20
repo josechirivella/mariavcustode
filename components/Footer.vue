@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-purple text-white pb-4">
+  <footer class="bg-purple text-white pb-4 px-4 lg:px-0">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 container mx-auto py-4">
       <div id="footer-info" class="space-y-4">
         <h2 class="text-4xl">Maria Custode</h2>

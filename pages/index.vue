@@ -53,7 +53,7 @@
   </div>
   <div id="latest-case-studies" class="mb-8">
     <headline-underline headline="Latest Case Studies" />
-    <template v-for="project in projects" :key="project.id">
+    <div v-for="project in projects" :key="project.id" class="px-4 lg:px-0">
       <NuxtLink
         :to="`case-studies/${project.id}`"
         class="flex items-center flex-wrap"
@@ -79,7 +79,7 @@
           <p>{{ project.attributes.subheading }}</p>
         </div>
       </NuxtLink>
-    </template>
+    </div>
   </div>
 </template>
 
