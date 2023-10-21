@@ -48,16 +48,6 @@
               /><span class="ml-2">Resume</span>
             </a>
           </li>
-          <li class="nav-item">
-            <NuxtLink
-              class="px-3 py-2 flex items-center text-lg uppercase font-bold leading-snug text-white hover:opacity-75"
-              to="/#contact-home"
-            >
-              <i
-                class="fab fa-pinterest text-lg leading-lg text-white opacity-75"
-              /><span class="ml-2">Contact</span>
-            </NuxtLink>
-          </li>
         </ul>
       </div>
     </div>
@@ -72,7 +62,7 @@ function toggleNavbar() {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 nav {
   font-family: "Istok Web", sans-serif;
   font-size: 1.5rem;
@@ -82,6 +72,9 @@ nav {
     &__item {
       @apply mr-8;
     }
+  }
+  li {
+    font-family: "Istok Web", sans-serif;
   }
 }
 </style>
