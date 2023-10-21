@@ -4,18 +4,18 @@
       <div id="footer-info" class="space-y-4">
         <h2 class="text-4xl">Maria Custode</h2>
         <p class="text-lg">UX/UI Designer</p>
-        <div class="social-icons flex align-middle space-x-2">
+        <div class="social-icons flex align-middle space-x-4">
           <nuxt-link to="mailto:mariavcustode@gmail.com" target="_blank">
-            <Icon name="ci:mail" width="40" height="40" />
+            <Icon name="fa6-solid:envelope" />
           </nuxt-link>
           <nuxt-link to="https://linkedin.com/in/mariavcustode" target="_blank"
-            ><Icon name="mdi:linkedin" width="40" height="40"
+            ><Icon name="fa6-brands:linkedin"
           /></nuxt-link>
           <nuxt-link to="tel:9195799981">
-            <Icon name="mdi:telephone" width="40" height="40" />
+            <Icon name="fa6-solid:phone" />
           </nuxt-link>
           <nuxt-link to="https://dribbble.com/mariavcustode" target="_blank">
-            <Icon name="icon-park-outline:dribble" width="40" height="40" />
+            <Icon name="fa6-brands:dribbble" />
           </nuxt-link>
         </div>
       </div>
