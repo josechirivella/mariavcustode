@@ -1,7 +1,7 @@
 <template>
   <div
     id="hero"
-    class="container mx-auto flex justify-between px-4 py-8 items-center"
+    class="container mx-auto flex justify-between px-4 lg:px-0 py-8 items-center"
   >
     <div class="hero-content">
       <h1 class="text-4xl lg:text-8xl">
