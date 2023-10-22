@@ -1,5 +1,8 @@
 <template>
-  <div id="hero" class="flex justify-between px-4 lg:px-16 py-8 items-center">
+  <div
+    id="hero"
+    class="container mx-auto flex justify-between px-4 py-8 items-center"
+  >
     <div class="hero-content">
       <h1 class="text-4xl lg:text-8xl">
         Hi there,<br />
@@ -17,7 +20,7 @@
     </div>
     <img
       src="~/assets/images/portrait.png"
-      class="w-1/2"
+      class="w-1/2 lg:w-1/4"
       alt="Portrait Picture"
     />
   </div>
