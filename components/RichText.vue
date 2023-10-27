@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!!markdown" v-html="markdown" />
+  <article v-if="!!markdown" class="prose lg:prose-xl" v-html="markdown" />
 </template>
 
 <script setup lang="ts">
