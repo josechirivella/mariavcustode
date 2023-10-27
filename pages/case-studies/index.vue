@@ -1,20 +1,24 @@
 <template>
-  <div v-if="projects?.length > 0" class="projects-container container mx-auto">
-    <template v-for="project in projects" :key="project.id">
+  <div
+    v-if="caseStudies?.length > 0"
+    class="case-studies-container container mx-auto"
+  >
+    <template v-for="caseStudy in caseStudies" :key="caseStudy.id">
       <NuxtLink
         :to="{
           name: 'case-studies-slug',
-          params: { slug: project.attributes.slug },
+          params: { slug: caseStudy.attributes.slug },
         }"
         class="flex items-center my-4 px-4"
       >
-        <template v-if="project.attributes.featureImage">
+        <template v-if="caseStudy.attributes.featureImage">
           <img
             :src="
-              project.attributes.featureImage.data.attributes.formats.small.url
+              caseStudy.attributes.featureImage.data.attributes.formats.small
+                .url
             "
             :alt="
-              project.attributes.featureImage.data.attributes.alternativeText
+              caseStudy.attributes.featureImage.data.attributes.alternativeText
             "
             class="w-1/2 lg:w-1/5 lg:ml-8 lg:mr-12 my-0 mx-auto rounded"
           />
@@ -24,9 +28,9 @@
           class="ml-4 lg:ml-0 h-24 w-full flex-1 flex justify-center flex-col"
         >
           <h3 class="text-3xl">
-            {{ project.attributes.heading }}
+            {{ caseStudy.attributes.heading }}
           </h3>
-          <p>{{ project.attributes.subHeading }}</p>
+          <p>{{ caseStudy.attributes.subHeading }}</p>
         </div>
       </NuxtLink>
     </template>
@@ -36,18 +40,18 @@
 <script lang="ts" setup>
 import { ICaseStudies } from "~/models/case-studies.model";
 import { ENTITIES } from "~/models/entities";
-import projectsService from "~/services/entity";
+import entityService from "~/services/entity";
 
-const projects: Ref<ICaseStudies[]> = ref();
+const caseStudies: Ref<ICaseStudies[]> = ref();
 
 async function getProjects() {
   try {
-    const { data } = await projectsService.get(ENTITIES.CASE_STUDIES, {
+    const { data } = await entityService.get(ENTITIES.CASE_STUDIES, {
       params: {
         populate: "featureImage",
       },
     });
-    projects.value = data;
+    caseStudies.value = data;
   } catch (e) {
     console.error("There was a problem fetching the projects", e.error);
   }

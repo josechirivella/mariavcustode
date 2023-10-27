@@ -56,21 +56,26 @@
   </div>
   <div id="latest-case-studies" class="mb-8">
     <headline-underline headline="Latest Case Studies" />
-    <div v-for="project in projects" :key="project.id" class="px-4 lg:px-0">
+    <div
+      v-for="caseStudy in caseStudies"
+      :key="caseStudy.id"
+      class="px-4 lg:px-0"
+    >
       <NuxtLink
         :to="{
           name: 'case-studies-slug',
-          params: { slug: project.attributes.slug },
+          params: { slug: caseStudy.attributes.slug },
         }"
         class="flex items-center flex-wrap"
       >
-        <template v-if="project.attributes.featureImage">
+        <template v-if="caseStudy.attributes.featureImage">
           <img
             :src="
-              project.attributes.featureImage.data.attributes.formats.small.url
+              caseStudy.attributes.featureImage.data.attributes.formats.small
+                .url
             "
             :alt="
-              project.attributes.featureImage.data.attributes.alternativeText
+              caseStudy.attributes.featureImage.data.attributes.alternativeText
             "
             class="w-1/2 lg:w-1/5 lg:ml-8 lg:mr-12 my-0 mx-auto rounded-lg"
           />
@@ -80,9 +85,9 @@
           class="ml-4 lg:ml-0 h-24 w-full flex-1 flex justify-center flex-col"
         >
           <h3 class="text-3xl">
-            {{ project.attributes.heading }}
+            {{ caseStudy.attributes.heading }}
           </h3>
-          <p>{{ project.attributes.subheading }}</p>
+          <p>{{ caseStudy.attributes.subheading }}</p>
         </div>
       </NuxtLink>
     </div>
@@ -93,7 +98,7 @@
 import { Ref, ref } from "vue";
 import Cards from "~/components/Cards.vue";
 import HeadlineUnderline from "~/components/HeadlineUnderline.vue";
-import projectsService from "~/services/entity";
+import entityService from "~/services/entity";
 import { ENTITIES } from "~/models/entities";
 import { ICaseStudies } from "~/models/case-studies.model";
 
@@ -112,16 +117,16 @@ const content = [
   },
 ];
 
-const projects: Ref<ICaseStudies[]> = ref();
+const caseStudies: Ref<ICaseStudies[]> = ref();
 
 async function getProjects() {
   try {
-    const { data } = await projectsService.get(ENTITIES.CASE_STUDIES, {
+    const { data } = await entityService.get(ENTITIES.CASE_STUDIES, {
       params: {
         populate: "featureImage",
       },
     });
-    projects.value = data;
+    caseStudies.value = data;
   } catch (e) {
     console.error("There was a problem fetching the projects", e.error);
   }

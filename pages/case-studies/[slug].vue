@@ -1,21 +1,21 @@
 <template>
-  <section v-if="project?.heading.length > 0">
+  <section v-if="caseStudy?.heading.length > 0">
     <div
       class="hero flex flex-wrap lg:flex-nowrap justify-between items-center px-4 container mx-auto"
       :style="{ 'background-color': backgroundColor }"
     >
       <div class="hero__content text-white mt-4">
-        <h1 class="font-medium">{{ project.heading }}</h1>
-        <h3 class="text-3xl mt-4">{{ project.subHeading }}</h3>
+        <h1 class="font-medium">{{ caseStudy.heading }}</h1>
+        <h3 class="text-3xl mt-4">{{ caseStudy.subHeading }}</h3>
       </div>
       <img
-        :src="project.featureImage.data.attributes.url"
-        :alt="project.featureImage.data.attributes.alternativeText"
+        :src="caseStudy.featureImage.data.attributes.url"
+        :alt="caseStudy.featureImage.data.attributes.alternativeText"
         class="w-1/2"
       />
     </div>
     <div class="content px-4 lg:px-0 my-4 container mx-auto">
-      <template v-for="content in project.content" :key="content.id">
+      <template v-for="content in caseStudy.content" :key="content.id">
         <LazyRichText
           v-if="content?.richText"
           :content="content.richText"
@@ -28,25 +28,25 @@
 <script setup lang="ts">
 import { onMounted, Ref, ref } from "vue";
 import { useRoute } from "vue-router";
-import projectsService from "~/services/entity";
+import entityService from "~/services/entity";
 import { ENTITIES } from "~/models/entities";
 import { ICaseStudyAttributes } from "~/models/case-studies.model";
 
 const route = useRoute();
 
-const project: Ref<ICaseStudyAttributes> = ref();
+const caseStudy: Ref<ICaseStudyAttributes> = ref();
 const backgroundColor: Ref<string> = ref("");
 
 async function fetchData() {
   try {
-    const { data } = await projectsService.getById(ENTITIES.CASE_STUDIES, {
+    const { data } = await entityService.getById(ENTITIES.CASE_STUDIES, {
       params: {
         "filters[slug][$eq]": route.params.slug,
         populate: "*",
       },
     });
     console.log("data", data[0].attributes);
-    project.value = data[0].attributes;
+    caseStudy.value = data[0].attributes;
     backgroundColor.value = data[0].attributes.backgroundColor;
     useSeoMeta({
       title: data[0].attributes.heading,
