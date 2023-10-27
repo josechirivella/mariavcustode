@@ -90,8 +90,8 @@
 import { Ref, ref } from "vue";
 import Cards from "~/components/Cards.vue";
 import HeadlineUnderline from "~/components/HeadlineUnderline.vue";
-import projectsService from "~/services/projects";
-import { ENTITIES } from "~/services/entities";
+import projectsService from "~/services/entity";
+import { ENTITIES } from "~/models/entities";
 import { ICaseStudies } from "~/models/case-studies.model";
 
 const content = [
@@ -143,3 +143,4 @@ getProjects();
   }
 }
 </style>
+~/services/entity

@@ -32,8 +32,8 @@
 
 <script lang="ts" setup>
 import { ICaseStudies } from "~/models/case-studies.model";
-import { ENTITIES } from "~/services/entities";
-import projectsService from "~/services/projects";
+import { ENTITIES } from "~/models/entities";
+import projectsService from "~/services/entity";
 
 const projects: Ref<ICaseStudies[]> = ref();
 

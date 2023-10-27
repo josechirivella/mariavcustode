@@ -23,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
-import projectsService from "~/services/projects";
-import { ENTITIES } from "~/services/entities";
+import projectsService from "~/services/entity";
+import { ENTITIES } from "~/models/entities";
 import { ICaseStudyAttributes } from "~/models/case-studies.model";
 import { onMounted, Ref, ref } from "vue";
 import { useRoute } from "vue-router";
@@ -113,3 +113,4 @@ $section-header-bg: #22577a;
   @apply underline-offset-1;
 }
 </style>
+~/services/entity

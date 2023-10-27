@@ -1,4 +1,4 @@
-import { ENTITIES } from "./entities";
+import { ENTITIES } from "~/models/entities";
 
 export default {
   get(entity: ENTITIES, config?: object) {
