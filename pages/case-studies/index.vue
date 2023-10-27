@@ -2,7 +2,10 @@
   <div v-if="projects?.length > 0" class="projects-container container mx-auto">
     <template v-for="project in projects" :key="project.id">
       <NuxtLink
-        :to="{ name: 'case-studies-id', params: { id: project.id } }"
+        :to="{
+          name: 'case-studies-slug',
+          params: { slug: project.attributes.slug },
+        }"
         class="flex items-center my-4 px-4"
       >
         <template v-if="project.attributes.featureImage">
@@ -51,8 +54,8 @@ async function getProjects() {
 }
 
 useSeoMeta({
-  title: "Maria Custode Case Studies",
-  ogTitle: "Maria Custode Case Studies",
+  title: "Maria Custode - Case Studies",
+  ogTitle: "Maria Custode - Case Studies",
   description: "Case studies made by Maria Custode",
   ogDescription: "Case studies made by Maria Custode",
 });

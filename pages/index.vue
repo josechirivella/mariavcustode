@@ -58,7 +58,10 @@
     <headline-underline headline="Latest Case Studies" />
     <div v-for="project in projects" :key="project.id" class="px-4 lg:px-0">
       <NuxtLink
-        :to="`case-studies/${project.id}`"
+        :to="{
+          name: 'case-studies-slug',
+          params: { slug: project.attributes.slug },
+        }"
         class="flex items-center flex-wrap"
       >
         <template v-if="project.attributes.featureImage">

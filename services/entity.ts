@@ -8,9 +8,9 @@ export default {
     );
   },
 
-  getById(entity: ENTITIES, id: number, config?: object) {
+  getById(entity: ENTITIES, config?: object) {
     return $fetch(
-      `${useRuntimeConfig().public.strapiApiURL}/${entity}/${id}`,
+      `${useRuntimeConfig().public.strapiApiURL}/${entity}`,
       config,
     );
   },

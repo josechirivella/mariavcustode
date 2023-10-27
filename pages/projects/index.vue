@@ -54,10 +54,17 @@ async function getProjects() {
       },
     });
     projects.value = data;
-    console.log(projects.value);
+    console.log(data);
   } catch (e) {
     console.error("There was a problem fetching the projects", e.error);
   }
 }
+useSeoMeta({
+  title: "Maria Custode - Projects",
+  ogTitle: "Maria Custode - Projects",
+  description: "Projects made by Maria Custode",
+  ogDescription: "Projects made by Maria Custode",
+});
+
 getProjects();
 </script>
