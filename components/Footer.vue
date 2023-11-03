@@ -21,10 +21,10 @@
       </div>
       <div id="footer-links">
         <ul class="space-y-2">
-          <li><nuxt-link to="/">Home</nuxt-link></li>
-          <li><nuxt-link to="/case-studies">Case Studies</nuxt-link></li>
-          <li>
-            <a href="/resume.pdf" target="_blank">Resume</a>
+          <li v-for="navItem in navItems" :key="navItem.name">
+            <NuxtLink :to="navItem.link" :target="navItem.target">{{
+              navItem.name
+            }}</NuxtLink>
           </li>
         </ul>
       </div>
@@ -39,6 +39,30 @@
 
 <script lang="ts" setup>
 const date = new Date().getFullYear();
+interface INavItems {
+  name: string;
+  link: string;
+  target?: string;
+}
+const navItems: Array<INavItems> = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Case Studies",
+    link: "/case-studies",
+  },
+  {
+    name: "Projects",
+    link: "/projects",
+  },
+  {
+    name: "Resume",
+    link: "/resume.pdf",
+    target: "_blank",
+  },
+];
 </script>
 
 <style scoped>

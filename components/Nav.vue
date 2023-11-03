@@ -1,12 +1,10 @@
 <template>
   <nav
-    class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-purple"
+    class="relative flex flex-wrap items-center justify-between px-4 py-3 bg-purple"
   >
-    <div
-      class="container px-4 mx-auto flex flex-wrap items-center justify-between"
-    >
+    <div class="container mx-auto flex flex-wrap items-center justify-between">
       <div
-        class="w-full relative flex justify-between items-center lg:w-auto px-4 lg:static lg:block lg:justify-start"
+        class="w-full relative flex justify-between items-center lg:w-auto lg:static lg:block lg:justify-start"
       >
         <NuxtLink
           class="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
@@ -27,26 +25,16 @@
         class="lg:flex lg:flex-grow items-center"
       >
         <ul class="flex flex-col lg:flex-row list-none ml-auto">
-          <li class="nav-item">
+          <li v-for="item in navItems" :key="item.name" class="nav-item">
             <NuxtLink
               class="px-3 py-2 flex items-center text-lg uppercase font-bold leading-snug text-white hover:opacity-75"
-              to="/case-studies"
+              :to="item.link"
+              :target="item.target"
             >
               <i
                 class="fab fa-facebook-square text-lg leading-lg text-white opacity-75"
-              /><span class="ml-2">Case Studies</span>
+              /><span class="ml-2">{{ item.name }}</span>
             </NuxtLink>
-          </li>
-          <li class="nav-item">
-            <a
-              class="px-3 py-2 flex items-center text-lg uppercase font-bold leading-snug text-white hover:opacity-75"
-              href="/resume.pdf"
-              target="_blank"
-            >
-              <i
-                class="fab fa-twitter text-lg leading-lg text-white opacity-75"
-              /><span class="ml-2">Resume</span>
-            </a>
           </li>
         </ul>
       </div>
@@ -56,7 +44,27 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+interface INavItems {
+  name: string;
+  link: string;
+  target?: string;
+}
 const showMenu = ref(false);
+const navItems: Array<INavItems> = [
+  {
+    name: "Case Studies",
+    link: "/case-studies",
+  },
+  {
+    name: "Projects",
+    link: "/projects",
+  },
+  {
+    name: "Resume",
+    link: "/resume.pdf",
+    target: "_blank",
+  },
+];
 function toggleNavbar() {
   showMenu.value = !showMenu.value;
 }

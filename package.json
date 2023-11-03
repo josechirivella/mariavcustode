@@ -2,7 +2,7 @@
   "name": "mariavcustode",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -32,6 +32,7 @@
   "dependencies": {
     "@nuxtjs/web-vitals": "^0.2.6",
     "@vercel/analytics": "^1.1.1",
-    "marked": "^9.1.2"
+    "marked": "^9.1.2",
+    "vue3-carousel-nuxt": "^1.1.0"
   }
 }

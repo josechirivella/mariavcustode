@@ -20,6 +20,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/tailwindcss",
     "nuxt-icon",
+    "vue3-carousel-nuxt",
     "nuxt-simple-sitemap",
     "@nuxtjs/web-vitals",
   ],
