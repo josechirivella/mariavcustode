@@ -11,6 +11,7 @@ export interface IProjectsAttributes {
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date;
+  media: FeatureImage;
   role: string;
   duration: string;
   featureImage: FeatureImage;

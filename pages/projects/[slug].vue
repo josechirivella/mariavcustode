@@ -16,6 +16,10 @@
     <div class="content px-4 lg:px-0 my-4 container mx-auto">
       {{ project.description }}
     </div>
+    <div class="container px-4 lg:px-0 mt-4 mx-auto">
+      <b>Duration: </b>{{ project.duration }}.
+    </div>
+    <LibCarousel :media="project.media.data" class="mt-4"></LibCarousel>
   </section>
 </template>
 
@@ -39,14 +43,14 @@ async function fetchData() {
     });
     console.log("data", data[0]);
     project.value = data[0].attributes;
-    // useSeoMeta({
-    //   title: data.attributes.title,
-    //   ogTitle: data.attributes.title,
-    //   description: data.attributes.description,
-    //   ogDescription: data.attributes.description,
-    //   ogImage: data.attributes.featureImage,
-    //   twitterCard: "summary_large_image",
-    // });
+    useSeoMeta({
+      title: data[0].attributes.title,
+      ogTitle: data[0].attributes.title,
+      description: data[0].attributes.description,
+      ogDescription: data[0].attributes.description,
+      ogImage: data[0].attributes.featureImage.data.attributes.url,
+      twitterCard: "summary_large_image",
+    });
   } catch (e) {
     console.error("There was a problem fetching the project", e);
   }
