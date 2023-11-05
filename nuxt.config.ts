@@ -31,4 +31,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  routeRules: {
+    "/case-studies/3": { redirect: "/case-studies/house-care" },
+  },
 });
