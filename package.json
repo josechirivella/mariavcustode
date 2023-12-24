@@ -30,9 +30,9 @@
     "vue-eslint-parser": "^9.3.2"
   },
   "dependencies": {
-    "@nuxtjs/web-vitals": "^0.2.6",
     "@vercel/analytics": "^1.1.1",
     "marked": "^9.1.2",
+    "posthog-js": "^1.96.1",
     "vue3-carousel-nuxt": "^1.1.0"
   }
 }

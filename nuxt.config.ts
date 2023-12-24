@@ -14,6 +14,8 @@ export default defineNuxtConfig({
     public: {
       strapiURL: "",
       strapiApiURL: "",
+      posthogPublicKey: "",
+      posthogHost: "",
     },
     strapiToken: process.env.STRAPI_TOKEN,
   },
@@ -22,7 +24,6 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "vue3-carousel-nuxt",
     "nuxt-simple-sitemap",
-    "@nuxtjs/web-vitals",
   ],
   css: ["~/assets/style.scss"],
   postcss: {
