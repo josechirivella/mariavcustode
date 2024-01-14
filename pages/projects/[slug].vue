@@ -25,9 +25,10 @@
 
 <script lang="ts" setup>
 import { useRoute } from "vue-router";
+import type { Ref } from "vue";
 import projectsService from "~/services/entity";
 import { ENTITIES } from "~/models/entities";
-import { IProjectsAttributes } from "~/models/projects.model";
+import type { IProjectsAttributes } from "~/models/projects.model";
 
 const route = useRoute();
 

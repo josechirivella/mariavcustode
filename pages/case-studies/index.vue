@@ -38,7 +38,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ICaseStudies } from "~/models/case-studies.model";
+import type { Ref } from "vue";
+import type { ICaseStudies } from "~/models/case-studies.model";
 import { ENTITIES } from "~/models/entities";
 import entityService from "~/services/entity";
 

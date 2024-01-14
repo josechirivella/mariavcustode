@@ -40,8 +40,9 @@
 </template>
 
 <script lang="ts" setup>
+import type { Ref } from "vue";
 import { ENTITIES } from "~/models/entities";
-import { IProjects } from "~/models/projects.model";
+import type { IProjects } from "~/models/projects.model";
 import projectsService from "~/services/entity";
 
 const projects: Ref<IProjects[]> = ref();

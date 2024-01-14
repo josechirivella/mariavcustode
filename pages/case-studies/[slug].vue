@@ -26,11 +26,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, Ref, ref } from "vue";
+import { onMounted, type Ref, ref } from "vue";
 import { useRoute } from "vue-router";
 import entityService from "~/services/entity";
 import { ENTITIES } from "~/models/entities";
-import { ICaseStudyAttributes } from "~/models/case-studies.model";
+import type { ICaseStudyAttributes } from "~/models/case-studies.model";
 
 const route = useRoute();
 

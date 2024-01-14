@@ -95,12 +95,12 @@
 </template>
 
 <script setup lang="ts">
-import { Ref, ref } from "vue";
+import { type Ref, ref } from "vue";
 import Cards from "~/components/Cards.vue";
 import HeadlineUnderline from "~/components/HeadlineUnderline.vue";
 import entityService from "~/services/entity";
 import { ENTITIES } from "~/models/entities";
-import { ICaseStudies } from "~/models/case-studies.model";
+import type { ICaseStudies } from "~/models/case-studies.model";
 
 const content = [
   {
@@ -128,7 +128,7 @@ async function getProjects() {
     });
     caseStudies.value = data;
   } catch (e) {
-    console.error("There was a problem fetching the projects", e.error);
+    console.error("There was a problem fetching the projects", e);
   }
 }
 
