@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "nuxt-icon",
     "vue3-carousel-nuxt",
-    "nuxt-simple-sitemap",
+    "@nuxtjs/sitemap",
   ],
   css: ["~/assets/style.scss"],
   postcss: {
